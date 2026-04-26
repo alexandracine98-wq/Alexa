@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menguante Agencia — Redes sociales para cine y cultura</title>
+  <meta name="description" content="Agencia creativa especializada en estrategia de redes sociales para películas, festivales, teatros y producciones culturales." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #FF4D6D;
+      --yellow: #FFE566;
+      --ink: #1a1a1a;
+      --cream: #FEFBF4;
+      --mint: #B8F5E0;
+      --lav: #D4C8FF;
+      --muted: #555;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2.5rem;
+      border-bottom: 2px solid var(--ink);
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .logo span {
+      background: var(--red);
+      color: #fff;
+      padding: 2px 6px;
+      margin-left: 4px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--red); }
+
+    .lang-switcher {
+      display: flex;
+      border: 2px solid var(--ink);
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      letter-spacing: 0.08em;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--ink);
+      text-transform: uppercase;
+      transition: all 0.15s;
+    }
+
+    .lang-btn.active { background: var(--ink); color: var(--cream); }
+    .lang-btn:not(.active):hover { background: var(--yellow); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 88vh;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .hero-left {
+      padding: 4rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 2px solid var(--ink);
+    }
+
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em { font-style: italic; color: var(--red); }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 400px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 0.75rem 1.8rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      border: 2px solid var(--ink);
+      cursor: pointer;
+      transition: all 0.18s;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--red); border-color: var(--red); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      padding: 0.75rem 1.8rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      border: 2px solid var(--ink);
+      cursor: pointer;
+      transition: all 0.18s;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { background: var(--yellow); }
+
+    .hero-right {
+      background: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+    }
+
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .film-strip { display: flex; flex-direction: column; gap: 0.5rem; }
+    .film-row { display: flex; gap: 0.5rem; }
+
+    .film-cell {
+      width: 70px;
+      height: 70px;
+      border: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      background: var(--cream);
+      transition: transform 0.2s;
+      cursor: default;
+    }
+
+    .film-cell:hover { transform: scale(1.08); }
+    .film-cell.pink  { background: var(--red); }
+    .film-cell.dark  { background: var(--ink); color: var(--yellow); font-family: 'Space Mono', monospace; font-size: 1.4rem; }
+    .film-cell.mint  { background: var(--mint); }
+    .film-cell.lav   { background: var(--lav); }
+
+    .hero-stats { display: flex; gap: 2rem; margin-top: 1.5rem; }
+
+    .hero-stat { font-family: 'Space Mono', monospace; text-align: center; }
+    .hero-stat-num { font-size: 2.5rem; font-weight: 700; color: var(--ink); line-height: 1; }
+    .hero-stat-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin-top: 0.25rem; }
+
+    /* ── SECTIONS ── */
+    section { border-bottom: 2px solid var(--ink); }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.2rem;
+      padding: 2.5rem 2.5rem 0;
+      margin-bottom: 2rem;
+    }
+
+    .section-num { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--red); letter-spacing: 0.1em; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; }
+
+    .about-text { padding: 2rem 2.5rem 3rem; border-right: 2px solid var(--ink); }
+    .about-text p { font-size: 1rem; color: #444; line-height: 1.8; margin-bottom: 1rem; }
+    .about-text p strong { color: var(--ink); }
+
+    .about-highlights { padding: 2rem 2.5rem 3rem; display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .highlight-pill {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      border: 2px solid var(--ink);
+      background: var(--cream);
+    }
+
+    .pill-emoji { font-size: 1.4rem; }
+    .pill-text { font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+    .pill-sub { font-size: 0.78rem; color: #777; margin-top: 2px; }
+
+    .hp-pink   { background: #FFEEF2; border-color: var(--red); }
+    .hp-yellow { background: #FFFCE5; }
+    .hp-mint   { background: #EDFFF7; }
+
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 2px solid var(--ink);
+    }
+
+    .project-card { border-right: 2px solid var(--ink); padding-bottom: 1.5rem; cursor: pointer; }
+    .project-card:nth-child(3n)  { border-right: none; }
+    .project-card:nth-child(n+4) { border-top: 2px solid var(--ink); }
+
+    .project-card:hover .card-thumb { opacity: 0.85; }
+
+    .card-thumb {
+      height: 180px;
+      border-bottom: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      transition: opacity 0.18s;
+    }
+
+    .ct-1 { background: #FF4D6D; } .ct-2 { background: #FFE566; } .ct-3 { background: #D4C8FF; }
+    .ct-4 { background: #B8F5E0; } .ct-5 { background: #FFD4B8; } .ct-6 { background: #C8E8FF; }
+
+    .card-body { padding: 1.2rem 1.2rem 0; }
+    .card-tag { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 0.4rem; }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .card-desc { font-size: 0.82rem; color: #666; line-height: 1.6; }
+
+    /* ── SERVICES ── */
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 2px solid var(--ink); }
+
+    .service-item { padding: 2rem 2.5rem; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+    .service-item:nth-child(2n)      { border-right: none; }
+    .service-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    .service-icon { width: 48px; height: 48px; border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; }
+    .si-pink   { background: var(--red); }
+    .si-yellow { background: var(--yellow); }
+    .si-lav    { background: var(--lav); }
+    .si-mint   { background: var(--mint); }
+
+    .service-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .service-desc  { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+    .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .stag { font-family: 'Space Mono', monospace; font-size: 0.64rem; letter-spacing: 0.06em; padding: 3px 8px; border: 1.5px solid var(--ink); background: var(--cream); text-transform: uppercase; }
+
+    /* ── CONTACT ── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; border-top: 2px solid var(--ink); }
+
+    .contact-left { padding: 2.5rem 2.5rem 3rem; border-right: 2px solid var(--ink); background: var(--red); }
+    .contact-left .section-title { color: #FEFBF4; }
+    .contact-left .section-num   { color: var(--yellow); }
+
+    .contact-slogan { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: #FEFBF4; margin: 1rem 0 1.5rem; line-height: 1.5; }
+    .contact-desc   { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.7; }
+
+    .contact-social { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 2rem; }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      color: #FEFBF4;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      padding: 0.7rem 1rem;
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: background 0.16s;
+    }
+
+    .social-link:hover { background: rgba(255,255,255,0.15); }
+
+    .contact-right { padding: 2.5rem 2.5rem 3rem; }
+
+    .form-group { margin-bottom: 1.2rem; }
+
+    .form-label { display: block; font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 0.4rem; }
+
+    .form-input { width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--ink); background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink); outline: none; transition: border-color 0.16s; }
+    .form-input:focus { border-color: var(--red); }
+    textarea.form-input { resize: vertical; min-height: 100px; }
+
+    .btn-send { background: var(--ink); color: var(--cream); padding: 0.85rem 2.2rem; font-family: 'Space Mono', monospace; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; border: 2px solid var(--ink); cursor: pointer; text-transform: uppercase; transition: all 0.18s; width: 100%; margin-top: 0.5rem; }
+    .btn-send:hover { background: var(--red); border-color: var(--red); }
+
+    /* ── FOOTER ── */
+    footer { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; background: var(--ink); color: var(--cream); }
+    .footer-logo { font-family: 'Space Mono', monospace; font-size: 0.82rem; font-weight: 700; }
+    .footer-copy { font-size: 0.78rem; color: #888; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.2rem; flex-wrap: wrap; gap: 0.8rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { min-height: 320px; }
+      .hero-left { padding: 2.5rem 1.5rem; border-right: none; border-bottom: 2px solid var(--ink); }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-text { border-right: none; border-bottom: 2px solid var(--ink); }
+      .contact-left { border-right: none; border-bottom: 2px solid var(--ink); }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .project-card { border-right: none !important; border-top: 2px solid var(--ink); }
+      .project-card:first-child { border-top: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-item { border-right: none !important; }
+      .section-header { padding: 2rem 1.5rem 0; }
+      .about-text, .about-highlights, .contact-right { padding: 1.5rem; }
+      .contact-left { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="#">Menguante<span>Agencia</span></a>
+    <div class="nav-right">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about"    id="nav-1"></a></li>
+        <li><a href="#portfolio" id="nav-2"></a></li>
+        <li><a href="#services" id="nav-3"></a></li>
+        <li><a href="#contact"  id="nav-4"></a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+        <button class="lang-btn"        id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-tag" id="hero-tag"></p>
+      <h1 class="hero-title" id="hero-title"></h1>
+      <p class="hero-desc"  id="hero-desc"></p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#portfolio" id="btn-work"></a>
+        <a class="btn-outline"  href="#contact"  id="btn-contact"></a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-visual">
+        <div class="film-strip">
+          <div class="film-row">
+            <div class="film-cell pink">🎬</div>
+            <div class="film-cell">🎭</div>
+            <div class="film-cell dark">★</div>
+            <div class="film-cell mint">🎨</div>
+          </div>
+          <div class="film-row">
+            <div class="film-cell lav">📽️</div>
+            <div class="film-cell pink">🎪</div>
+            <div class="film-cell">🎵</div>
+            <div class="film-cell dark">✦</div>
+          </div>
+          <div class="film-row">
+            <div class="film-cell">🏆</div>
+            <div class="film-cell mint">🎞️</div>
+            <div class="film-cell pink">📣</div>
+            <div class="film-cell lav">🎤</div>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-num">50+</div><div class="hero-stat-label" id="stat-projects"></div></div>
+          <div class="hero-stat"><div class="hero-stat-num">12M</div><div class="hero-stat-label"  id="stat-reach"></div></div>
+          <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label"    id="stat-years"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <span class="section-num">01 —</span>
+      <h2 class="section-title" id="about-title"></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p id="about-p1"></p>
+        <p id="about-p2"></p>
+        <p id="about-p3"></p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-pill hp-pink">
+          <span class="pill-emoji">🎬</span>
+          <div><div class="pill-text" id="pill1-title"></div><div class="pill-sub" id="pill1-sub"></div></div>
+        </div>
+        <div class="highlight-pill hp-yellow">
+          <span class="pill-emoji">📈</span>
+          <div><div class="pill-text" id="pill2-title"></div><div class="pill-sub" id="pill2-sub"></div></div>
+        </div>
+        <div class="highlight-pill hp-mint">
+          <span class="pill-emoji">🌍</span>
+          <div><div class="pill-text" id="pill3-title"></div><div class="pill-sub" id="pill3-sub"></div></div>
+        </div>
+        <div class="highlight-pill">
+          <span class="pill-emoji">🎭</span>
+          <div><div class="pill-text" id="pill4-title"></div><div class="pill-sub" id="pill4-sub"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="section-header">
+      <span class="section-num">02 —</span>
+      <h2 class="section-title" id="portfolio-title"></h2>
+    </div>
+    <div class="portfolio-grid">
+      <div class="project-card"><div class="card-thumb ct-1">🎬</div><div class="card-body"><p class="card-tag" id="p1-tag"></p><h3 class="card-title" id="p1-title"></h3><p class="card-desc" id="p1-desc"></p></div></div>
+      <div class="project-card"><div class="card-thumb ct-2">🎭</div><div class="card-body"><p class="card-tag" id="p2-tag"></p><h3 class="card-title" id="p2-title"></h3><p class="card-desc" id="p2-desc"></p></div></div>
+      <div class="project-card"><div class="card-thumb ct-3">🏆</div><div class="card-body"><p class="card-tag" id="p3-tag"></p><h3 class="card-title" id="p3-title"></h3><p class="card-desc" id="p3-desc"></p></div></div>
+      <div class="project-card"><div class="card-thumb ct-4">🎨</div><div class="card-body"><p class="card-tag" id="p4-tag"></p><h3 class="card-title" id="p4-title"></h3><p class="card-desc" id="p4-desc"></p></div></div>
+      <div class="project-card"><div class="card-thumb ct-5">🎵</div><div class="card-body"><p class="card-tag" id="p5-tag"></p><h3 class="card-title" id="p5-title"></h3><p class="card-desc" id="p5-desc"></p></div></div>
+      <div class="project-card"><div class="card-thumb ct-6">📽️</div><div class="card-body"><p class="card-tag" id="p6-tag"></p><h3 class="card-title" id="p6-title"></h3><p class="card-desc" id="p6-desc"></p></div></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-header">
+      <span class="section-num">03 —</span>
+      <h2 class="section-title" id="services-title"></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-icon si-pink">📣</div>
+        <h3 class="service-title" id="s1-title"></h3>
+        <p  class="service-desc"  id="s1-desc"></p>
+        <div class="service-tags"><span class="stag">Instagram</span><span class="stag">TikTok</span><span class="stag">X</span><span class="stag">YouTube</span></div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon si-yellow">✏️</div>
+        <h3 class="service-title" id="s2-title"></h3>
+        <p  class="service-desc"  id="s2-desc"></p>
+        <div class="service-tags"><span class="stag">Reels</span><span class="stag">Stories</span><span class="stag" id="s2-tag1"></span><span class="stag" id="s2-tag2"></span></div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon si-lav">👥</div>
+        <h3 class="service-title" id="s3-title"></h3>
+        <p  class="service-desc"  id="s3-desc"></p>
+        <div class="service-tags"><span class="stag" id="s3-tag1"></span><span class="stag" id="s3-tag2"></span><span class="stag" id="s3-tag3"></span></div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon si-mint">📊</div>
+        <h3 class="service-title" id="s4-title"></h3>
+        <p  class="service-desc"  id="s4-desc"></p>
+        <div class="service-tags"><span class="stag" id="s4-tag1"></span><span class="stag" id="s4-tag2"></span><span class="stag">ROI</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:1rem;">
+          <span class="section-num">04 —</span>
+          <h2 class="section-title" id="contact-title"></h2>
+        </div>
+        <p class="contact-slogan" id="contact-slogan"></p>
+        <p class="contact-desc"   id="contact-desc"></p>
+        <div class="contact-social">
+          <a class="social-link" href="mailto:hola@menguanteagencia.com">📧 hola@menguanteagencia.com</a>
+          <a class="social-link" href="https://instagram.com/menguanteagencia" target="_blank">📸 @menguanteagencia</a>
+          <a class="social-link" href="https://linkedin.com/in/menguante" target="_blank">💼 linkedin.com/in/menguante</a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="form-group"><label class="form-label" id="f-name"></label><input class="form-input" type="text"   id="f-name-inp" /></div>
+        <div class="form-group"><label class="form-label" id="f-email"></label><input class="form-input" type="email" id="f-email-inp" /></div>
+        <div class="form-group"><label class="form-label" id="f-project"></label><input class="form-input" type="text" id="f-project-inp" /></div>
+        <div class="form-group"><label class="form-label" id="f-msg"></label><textarea class="form-input" id="f-msg-inp"></textarea></div>
+        <button class="btn-send" id="btn-send" onclick="handleSend()"></button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Menguante Agencia</span>
+    <span class="footer-copy" id="footer-copy"></span>
+  </footer>
+
+  <script>
+    const T = {
+      es: {
+        nav: ['Nosotros','Trabajo','Servicios','Contacto'],
+        heroTag:   '✦ Agencia de redes sociales para cine y cultura',
+        heroTitle: 'Hacemos que la <em>cultura</em> se viralice.',
+        heroDesc:  'Menguante es una agencia creativa especializada en estrategia de redes sociales para películas, festivales, teatros y producciones culturales. Construimos audiencias, no solo seguidores.',
+        btnWork:    'Ver nuestro trabajo',
+        btnContact: 'Contáctanos',
+        statProjects: 'proyectos',
+        statReach:    'alcance',
+        statYears:    'años de exp.',
+        aboutTitle: 'Sobre la agencia',
+        aboutP1: 'Somos <strong>Menguante Agencia</strong>, un estudio de redes sociales nacido del amor por el cine y la narrativa. Creemos que toda producción cultural merece una audiencia tan apasionada como las personas que la crearon.',
+        aboutP2: 'Desde películas independientes y temporadas de teatro hasta festivales y exposiciones de arte, construimos presencias digitales tan convincentes como la obra en sí, convirtiendo a espectadores casuales en fans devotos.',
+        aboutP3: 'Nuestro enfoque combina <strong>estrategia basada en datos</strong> con genuito instinto creativo. No solo publicamos contenido; construimos conversaciones culturales.',
+        pill1Title: 'Especialistas en cine y cultura',          pill1Sub: 'Hablamos el lenguaje del cine y el arte',
+        pill2Title: 'Estrategia + creatividad en cada campaña', pill2Sub: 'Decisiones con datos y una estética atrevida',
+        pill3Title: 'Raíces locales, alcance internacional',    pill3Sub: 'Con base en Colombia, trabajamos globalmente',
+        pill4Title: 'Desde el pre-lanzamiento hasta el post-estreno', pill4Sub: 'Gestión completa del ciclo de campaña',
+        portfolioTitle: 'Trabajo seleccionado',
+        p1Tag:'Cine · Campaña de lanzamiento',  p1Title:'Estreno de largometraje',       p1Desc:'Campaña completa en Instagram y TikTok, generando más de 2M de impresiones orgánicas antes del estreno.',
+        p2Tag:'Teatro · Identidad de marca',    p2Title:'Temporada teatral 2024',         p2Desc:'Estrategia social para un teatro independiente, triplicando la venta de entradas con una serie de contenido dirigida.',
+        p3Tag:'Festival · Comunidad',           p3Title:'Cobertura de festival de cine',  p3Desc:'Cobertura en vivo y gestión de comunidad para un festival regional de cine con 40k asistentes.',
+        p4Tag:'Arte · Serie de contenido',      p4Title:'Serie de exposiciones',          p4Desc:'Serie mensual que traduce exposiciones de arte contemporáneo en video de formato corto para redes.',
+        p5Tag:'Música · Eventos en vivo',       p5Title:'Campaña de gira musical',        p5Desc:'Campaña multiplataforma para una gira de música latina, logrando funciones agotadas en 5 ciudades.',
+        p6Tag:'Documental · Visibilidad',       p6Title:'Estreno de documental',          p6Desc:'Campaña de visibilidad para un documental independiente, consiguiendo atención de prensa internacional y adquisición en streaming.',
+        servicesTitle: 'Lo que hacemos',
+        s1Title:'Estrategia de redes sociales', s1Desc:'Estrategia de contenido personalizada según los objetivos, la audiencia y los plazos de tu producción. Desde campañas de teaser hasta engagement post-estreno.',
+        s2Title:'Creación de contenido',        s2Desc:'Redacción, diseño gráfico, video de formato corto y dirección editorial, todo en un solo lugar. Creamos contenido nativo a cada plataforma.', s2Tag1:'Redacción', s2Tag2:'Diseño',
+        s3Title:'Gestión de comunidad',         s3Desc:'Engagement en tiempo real, moderación y construcción de audiencia. Cultivamos comunidades en torno a tu proyecto que perduran más allá del estreno.', s3Tag1:'Engagement', s3Tag2:'Moderación', s3Tag3:'Fidelización',
+        s4Title:'Análisis y reportes',          s4Desc:'Reportes mensuales con métricas claras: alcance, engagement, conversiones e insights de audiencia. Medimos lo que realmente importa para producciones culturales.', s4Tag1:'Reportes', s4Tag2:'Insights',
+        contactTitle:  'Trabajemos juntos',
+        contactSlogan: '"Cada gran película merece una gran audiencia. Encontremos la tuya."',
+        contactDesc:   'Ya sea que estés lanzando un largometraje, planificando un festival o gestionando una institución cultural, nos encantaría escuchar sobre tu proyecto.',
+        fName:'Tu nombre', fNamePh:'María García', fEmail:'Correo electrónico', fEmailPh:'maria@estudio.com',
+        fProject:'Tipo de proyecto', fProjectPh:'Película, festival, teatro…',
+        fMsg:'Cuéntanos sobre tu proyecto', fMsgPh:'¿En qué estás trabajando? ¿Qué necesitas?',
+        btnSend: 'Enviar mensaje ✦',
+        footerCopy: '© 2026 · Redes sociales para cine y cultura',
+        alertMsg: '¡Gracias por tu mensaje! Te contactaremos pronto.',
+      },
+      en: {
+        nav: ['About','Work','Services','Contact'],
+        heroTag:   '✦ Social Media Agency for Film & Culture',
+        heroTitle: 'We make <em>culture</em> go viral.',
+        heroDesc:  'Menguante is a creative agency specializing in social media strategy for movies, festivals, theaters, and cultural productions. We build audiences, not just followers.',
+        btnWork:    'See our work',
+        btnContact: 'Get in touch',
+        statProjects: 'projects',
+        statReach:    'reach',
+        statYears:    'yrs exp.',
+        aboutTitle: 'About the agency',
+        aboutP1: 'We are <strong>Menguante Agencia</strong>, a social media studio born from a love of cinema and storytelling. We believe every cultural production deserves an audience that is as passionate as the people who made it.',
+        aboutP2: 'From independent films and theater runs to festivals and art exhibitions, we craft digital presences that are as compelling as the work itself — turning casual scrollers into devoted fans.',
+        aboutP3: 'Our approach mixes <strong>data-driven strategy</strong> with genuine creative instinct. We don\'t just post content; we build cultural conversations.',
+        pill1Title: 'Specialists in film & cultural media',    pill1Sub: 'We speak the language of cinema and art',
+        pill2Title: 'Strategy + creativity in every campaign', pill2Sub: 'Data-backed decisions with a bold aesthetic',
+        pill3Title: 'Local roots, international reach',        pill3Sub: 'Based in Colombia, working globally',
+        pill4Title: 'From pre-launch buzz to post-release',    pill4Sub: 'Full campaign lifecycle management',
+        portfolioTitle: 'Selected work',
+        p1Tag:'Film · Launch Campaign',    p1Title:'Feature Film Release',      p1Desc:'End-to-end social campaign across Instagram and TikTok, generating 2M+ organic impressions before premiere.',
+        p2Tag:'Theater · Brand Identity',  p2Title:'Theater Season 2024',       p2Desc:'Seasonal social strategy for an independent theater, tripling ticket sales through targeted content series.',
+        p3Tag:'Festival · Community',      p3Title:'Film Festival Coverage',     p3Desc:'Live social coverage and community management for a regional film festival with 40k attendees.',
+        p4Tag:'Art · Content Series',      p4Title:'Gallery Exhibition Series',  p4Desc:'Monthly content series translating contemporary art exhibitions into engaging short-form video.',
+        p5Tag:'Music · Live Events',       p5Title:'Concert Tour Campaign',      p5Desc:'Multi-platform campaign for a Latin music tour, driving sold-out shows across 5 cities.',
+        p6Tag:'Documentary · Awareness',   p6Title:'Documentary Premiere',       p6Desc:'Awareness campaign for an independent documentary, securing international press attention and streaming pickup.',
+        servicesTitle: 'What we do',
+        s1Title:'Social Media Strategy', s1Desc:'Custom content strategy tailored to your production\'s goals, audience, and timeline. From teaser campaigns to post-release engagement.',
+        s2Title:'Content Creation',      s2Desc:'Copywriting, graphic design, short-form video, and editorial direction — all in one place. We create content that feels native to each platform.', s2Tag1:'Copywriting', s2Tag2:'Design',
+        s3Title:'Community Management',  s3Desc:'Real-time engagement, moderation, and audience building. We nurture communities around your film or cultural project that last beyond the release.', s3Tag1:'Engagement', s3Tag2:'Moderation', s3Tag3:'Fan Building',
+        s4Title:'Analytics & Reporting', s4Desc:'Monthly reports with clear metrics: reach, engagement, conversions, and audience insights. We measure what actually matters for cultural productions.', s4Tag1:'Reporting', s4Tag2:'Insights',
+        contactTitle:  "Let's work together",
+        contactSlogan: '"Every great film deserves a great audience. Let\'s find yours."',
+        contactDesc:   "Whether you're launching a feature film, planning a festival, or managing a cultural institution — we'd love to hear about your project.",
+        fName:'Your name', fNamePh:'Jane Doe', fEmail:'Email address', fEmailPh:'jane@studio.com',
+        fProject:'Project type', fProjectPh:'Film, festival, theater…',
+        fMsg:'Tell us about your project', fMsgPh:'What are you working on? What do you need?',
+        btnSend: 'Send message ✦',
+        footerCopy: '© 2026 · Social media for film & culture',
+        alertMsg: 'Thanks for your message! We\'ll be in touch soon.',
+      }
+    };
+
+    function setLang(lang) {
+      const d = T[lang];
+      document.documentElement.lang = lang;
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      d.nav.forEach((label, i) => { document.getElementById('nav-' + (i+1)).textContent = label; });
+      document.getElementById('hero-tag').textContent   = d.heroTag;
+      document.getElementById('hero-title').innerHTML   = d.heroTitle;
+      document.getElementById('hero-desc').textContent  = d.heroDesc;
+      document.getElementById('btn-work').textContent   = d.btnWork;
+      document.getElementById('btn-contact').textContent = d.btnContact;
+      document.getElementById('stat-projects').textContent = d.statProjects;
+      document.getElementById('stat-reach').textContent    = d.statReach;
+      document.getElementById('stat-years').textContent    = d.statYears;
+      document.getElementById('about-title').textContent = d.aboutTitle;
+      document.getElementById('about-p1').innerHTML = d.aboutP1;
+      document.getElementById('about-p2').innerHTML = d.aboutP2;
+      document.getElementById('about-p3').innerHTML = d.aboutP3;
+      ['pill1','pill2','pill3','pill4'].forEach(p => {
+        document.getElementById(p+'-title').textContent = d[p+'Title'];
+        document.getElementById(p+'-sub').textContent   = d[p+'Sub'];
+      });
+      document.getElementById('portfolio-title').textContent = d.portfolioTitle;
+      ['p1','p2','p3','p4','p5','p6'].forEach(p => {
+        document.getElementById(p+'-tag').textContent   = d[p+'Tag'];
+        document.getElementById(p+'-title').textContent = d[p+'Title'];
+        document.getElementById(p+'-desc').textContent  = d[p+'Desc'];
+      });
+      document.getElementById('services-title').textContent = d.servicesTitle;
+      ['s1','s2','s3','s4'].forEach(s => {
+        document.getElementById(s+'-title').textContent = d[s+'Title'];
+        document.getElementById(s+'-desc').textContent  = d[s+'Desc'];
+      });
+      document.getElementById('s2-tag1').textContent = d.s2Tag1;
+      document.getElementById('s2-tag2').textContent = d.s2Tag2;
+      document.getElementById('s3-tag1').textContent = d.s3Tag1;
+      document.getElementById('s3-tag2').textContent = d.s3Tag2;
+      document.getElementById('s3-tag3').textContent = d.s3Tag3;
+      document.getElementById('s4-tag1').textContent = d.s4Tag1;
+      document.getElementById('s4-tag2').textContent = d.s4Tag2;
+      document.getElementById('contact-title').textContent  = d.contactTitle;
+      document.getElementById('contact-slogan').textContent = d.contactSlogan;
+      document.getElementById('contact-desc').textContent   = d.contactDesc;
+      document.getElementById('f-name').textContent    = d.fName;
+      document.getElementById('f-name-inp').placeholder = d.fNamePh;
+      document.getElementById('f-email').textContent    = d.fEmail;
+      document.getElementById('f-email-inp').placeholder = d.fEmailPh;
+      document.getElementById('f-project').textContent    = d.fProject;
+      document.getElementById('f-project-inp').placeholder = d.fProjectPh;
+      document.getElementById('f-msg').textContent        = d.fMsg;
+      document.getElementById('f-msg-inp').placeholder    = d.fMsgPh;
+      document.getElementById('btn-send').textContent     = d.btnSend;
+      document.getElementById('footer-copy').textContent  = d.footerCopy;
+      window._currentLang = lang;
+    }
+
+    function handleSend() {
+      const lang = window._currentLang || 'es';
+      alert(T[lang].alertMsg);
+    }
+
+    setLang('es');
+  </script>
+</body>
+</html>
